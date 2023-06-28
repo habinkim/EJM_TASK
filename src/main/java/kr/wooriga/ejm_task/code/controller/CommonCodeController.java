@@ -32,4 +32,22 @@ public class CommonCodeController {
         return responseMapper.ok(detail);
     }
 
+    @PostMapping(value = Uris.CODE_ROOT)
+    public ResponseEntity<BaseResponse> createCode(@Valid @RequestBody final CommonCodePayloads.CreateRequest request) {
+        service.createCode(request);
+        return responseMapper.ok();
+    }
+
+    @PatchMapping(value = Uris.CODE_ROOT)
+    public ResponseEntity<BaseResponse> updateCode(@Valid @RequestBody final CommonCodePayloads.UpdateRequest request) {
+        service.updateCode(request);
+        return responseMapper.ok();
+    }
+
+    @DeleteMapping(value = Uris.CODE_ROOT + Uris.REST_NAME_UUID)
+    public ResponseEntity<BaseResponse> deleteCode(@PathVariable final String uuid) {
+        service.deleteCode(uuid);
+        return responseMapper.ok();
+    }
+
 }

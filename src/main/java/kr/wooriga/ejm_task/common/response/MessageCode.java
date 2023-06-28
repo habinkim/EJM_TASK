@@ -17,7 +17,8 @@ public enum MessageCode {
     ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "9998"),
     EXCEPTION_ILLEGAL_ARGUMENT(HttpStatus.BAD_REQUEST, "9100"),
 
-    NOT_FOUND_COMMON_CODE(HttpStatus.BAD_REQUEST, "1000");
+    NOT_FOUND_COMMON_CODE(HttpStatus.BAD_REQUEST, "1000"),
+    NOT_FOUND_COMMON_CODE_GROUP(HttpStatus.BAD_REQUEST, "1001");
 
     private final HttpStatus httpStatus;
     private final String code;
