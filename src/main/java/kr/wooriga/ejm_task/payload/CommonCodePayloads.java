@@ -1,11 +1,13 @@
 package kr.wooriga.ejm_task.payload;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
+import java.time.LocalDateTime;
 
 public class CommonCodePayloads {
 
@@ -54,10 +56,18 @@ public class CommonCodePayloads {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class DetailResponse extends ListResponse {
+
         private String description;
 
         private String groupUuid;
         private String groupDescription;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+        private LocalDateTime createdAt;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
+        private LocalDateTime updatedAt;
+
     }
 
     @Builder

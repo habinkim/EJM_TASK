@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-29T03:08:22+0900",
-    comments = "version: 1.5.5.Final, compiler: javac, environment: Java 11.0.11 (Azul Systems, Inc.)"
+    date = "2023-06-29T04:35:19+0900",
+    comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.1.jar, environment: Java 11.0.11 (Azul Systems, Inc.)"
 )
 @Component
 @Qualifier("delegate")
@@ -47,6 +47,12 @@ public class CommonCodeMapperImpl_ implements CommonCodeMapper {
         }
         if ( commonCode.getDescription() != null ) {
             detailResponse.description( commonCode.getDescription() );
+        }
+        if ( commonCode.getCreatedAt() != null ) {
+            detailResponse.createdAt( commonCode.getCreatedAt() );
+        }
+        if ( commonCode.getUpdatedAt() != null ) {
+            detailResponse.updatedAt( commonCode.getUpdatedAt() );
         }
 
         return detailResponse.build();

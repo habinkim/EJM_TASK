@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'kr.wooriga'
-version = '0.0.1-SNAPSHOT'
+version = '0.8.0'
 
 java {
     sourceCompatibility = '11'
@@ -28,7 +28,6 @@ ext {
     set('snippetsDir', file("build/generated-snippets"))
 }
 
-def queryDslVersion = '5.0.0'
 def mapstructVersion = '1.5.5.Final'
 
 dependencies {
@@ -40,7 +39,6 @@ dependencies {
     implementation "com.querydsl:querydsl-jpa:5.0.0"
     implementation "com.querydsl:querydsl-apt:5.0.0"
     implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.1'
-    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
 
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"

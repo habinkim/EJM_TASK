@@ -1,8 +1,8 @@
 package kr.wooriga.ejm_task.code.mapper;
 
 import javax.annotation.processing.Generated;
-import kr.wooriga.ejm_task.domain.CommonCode;
-import kr.wooriga.ejm_task.payload.CommonCodePayloads;
+import kr.wooriga.ejm_task.domain.CommonCodeGroup;
+import kr.wooriga.ejm_task.payload.CommonCodeGroupPayloads;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
@@ -15,14 +15,19 @@ import org.springframework.stereotype.Component;
 )
 @Component
 @Primary
-public class CommonCodeMapperImpl extends CommonCodeDecorator {
+public class CommonCodeGroupMapperImpl extends CommonCodeGroupDecorator {
 
     @Autowired
     @Qualifier("delegate")
-    private CommonCodeMapper delegate;
+    private CommonCodeGroupMapper delegate;
 
     @Override
-    public CommonCodePayloads.DetailResponse detailResponse(CommonCode commonCode)  {
-        return delegate.detailResponse( commonCode );
+    public CommonCodeGroup fromCreateRequest(CommonCodeGroupPayloads.CreateRequest request)  {
+        return delegate.fromCreateRequest( request );
+    }
+
+    @Override
+    public CommonCodeGroup.CommonCodeGroupBuilder<?, ?> fromUpdateRequest(CommonCodeGroupPayloads.UpdateRequest request, CommonCodeGroup.CommonCodeGroupBuilder<?, ?> commonCodeGroup)  {
+        return delegate.fromUpdateRequest( request, commonCodeGroup );
     }
 }

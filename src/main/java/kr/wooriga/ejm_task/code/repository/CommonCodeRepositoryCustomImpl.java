@@ -5,8 +5,6 @@ import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import kr.wooriga.ejm_task.common.util.PredicateBuilder;
-import kr.wooriga.ejm_task.domain.QCommonCode;
-import kr.wooriga.ejm_task.domain.QCommonCodeGroup;
 import kr.wooriga.ejm_task.payload.CommonCodePayloads;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -40,7 +38,9 @@ public class CommonCodeRepositoryCustomImpl implements CommonCodeRepositoryCusto
                                 commonCode.uuid,
                                 commonCode.value,
                                 commonCode.name,
-                                commonCodeGroup.name.as("groupName")
+                                commonCodeGroup.name.as("groupName"),
+                                commonCode.createdAt,
+                                commonCode.updatedAt
                         )
                 )
                 .from(commonCode)

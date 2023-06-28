@@ -32,7 +32,9 @@ public class CommonCodeGroupRepositoryCustomImpl implements CommonCodeGroupRepos
         List<CommonCodeGroupPayloads.ListResponse> fetch = queryFactory.select(
                         Projections.fields(CommonCodeGroupPayloads.ListResponse.class,
                                 commonCodeGroup.uuid,
-                                commonCodeGroup.name
+                                commonCodeGroup.name,
+                                commonCodeGroup.createdAt,
+                                commonCodeGroup.updatedAt
                         )
                 )
                 .from(commonCodeGroup)
