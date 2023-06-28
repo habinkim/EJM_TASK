@@ -1,24 +1,31 @@
 package kr.wooriga.ejm_task.domain.base;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
+@SuperBuilder(toBuilder = true)
 @MappedSuperclass
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
+    @Builder.Default
     @Column
-    protected String uuid; // 고유번호
+    protected String uuid = UUID.randomUUID().toString(); // 고유번호
 
+    @Builder.Default
     @JsonIgnore
     @Column(nullable = false)
     protected Boolean enabled = true;

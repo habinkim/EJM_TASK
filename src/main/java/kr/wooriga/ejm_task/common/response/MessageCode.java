@@ -15,8 +15,9 @@ public enum MessageCode {
     ACCEPTED(HttpStatus.ACCEPTED, "0001"),
     NOT_FOUND_DATA(HttpStatus.BAD_REQUEST, "9997"),
     ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "9998"),
-    EXCEPTION_ILLEGAL_ARGUMENT(HttpStatus.BAD_REQUEST, "9100");
+    EXCEPTION_ILLEGAL_ARGUMENT(HttpStatus.BAD_REQUEST, "9100"),
 
+    NOT_FOUND_COMMON_CODE(HttpStatus.BAD_REQUEST, "1000");
 
     private final HttpStatus httpStatus;
     private final String code;
