@@ -77,7 +77,7 @@ public class CommonCodeController {
         return responseMapper.ok();
     }
 
-    @DeleteMapping(value = Uris.CODE_GROUP_ROOT + Uris.REST_NAME_UUID, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = Uris.CODE_GROUP_ROOT + Uris.REST_NAME_UUID, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BaseResponse> deleteCodeGroup(@PathVariable final String uuid) {
         service.deleteCodeGroup(uuid);
         return responseMapper.ok();

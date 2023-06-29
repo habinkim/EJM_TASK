@@ -7,4 +7,6 @@ import java.util.Optional;
 
 public interface CommonCodeGroupRepository extends JpaRepository<CommonCodeGroup, Long>, CommonCodeGroupRepositoryCustom {
     Optional<CommonCodeGroup> findByUuidAndEnabledTrue(String uuid);
+
+    Optional<CommonCodeGroup> findByNameAndEnabledTrue(String name);
 }

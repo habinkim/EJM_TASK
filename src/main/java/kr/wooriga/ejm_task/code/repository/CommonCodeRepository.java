@@ -8,8 +8,6 @@ import java.util.Optional;
 
 public interface CommonCodeRepository extends JpaRepository<CommonCode, Long>, CommonCodeRepositoryCustom {
 
-    Optional<CommonCode> findByIdAndEnabledTrue(Long id);
-
     @EntityGraph(attributePaths = {"group"})
     Optional<CommonCode> findByUuidAndEnabledTrue(String uuid);
 

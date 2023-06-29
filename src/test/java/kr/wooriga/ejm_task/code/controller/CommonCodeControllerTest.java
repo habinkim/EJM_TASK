@@ -301,7 +301,7 @@ class CommonCodeControllerTest extends ControllerBaseTest {
                                 requestFields(requestDescriptors), responseFields(responseDescriptors),
                                 resource(
                                         ResourceSnippetParameters.builder()
-                                                .description("공통 코드 생성")
+                                                .description("공통 코드 수정")
                                                 .requestFields(requestDescriptors)
                                                 .responseFields(responseDescriptors).build()
                                 )
@@ -337,7 +337,7 @@ class CommonCodeControllerTest extends ControllerBaseTest {
                                 pathParameters(parameterDescriptor), responseFields(responseDescriptors),
                                 resource(
                                         ResourceSnippetParameters.builder()
-                                                .description("공통 코드 생성")
+                                                .description("공통 코드 삭제")
                                                 .pathParameters(parameterDescriptor)
                                                 .responseFields(responseDescriptors).build()
                                 )
@@ -483,7 +483,7 @@ class CommonCodeControllerTest extends ControllerBaseTest {
                                 pathParameters(parameterDescriptor), responseFields(responseDescriptors),
                                 resource(
                                         ResourceSnippetParameters.builder()
-                                                .description("공통 코드 상세 조회")
+                                                .description("공통 코드 그룹 상세 조회")
                                                 .pathParameters(parameterDescriptor)
                                                 .responseFields(responseDescriptors).build()
                                 )
@@ -496,20 +496,123 @@ class CommonCodeControllerTest extends ControllerBaseTest {
     @Test
     @Order(8)
     @DisplayName("공통코드 그룹 생성, 성공")
-    void createCodeGroupSuccess() {
+    void createCodeGroupSuccess() throws Exception {
+
+        String uri = Uris.CODE_GROUP_ROOT;
+        String name = "판매 상태";
+        CommonCodeGroupPayloads.CreateRequest request =
+                new CommonCodeGroupPayloads.CreateRequest(name, "상품의 판매 상태를 나타내는 코드들의 모임.");
+
+        ResultActions resultActions = mockMvc.perform(
+                        post(uri)
+                                .content(stringUtils.toJson(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message", notNullValue()))
+                .andExpect(jsonPath("$.message", is(MessageCode.SUCCESS.name())));
+
+        assertDoesNotThrow(() -> gateway.findCommonCodeGroupByName(name));
+
+        FieldDescriptor[] requestDescriptors = {
+                fieldWithPath("name").description("공통코드 그룹명"),
+                fieldWithPath("description").description("공통코드 그룹 설명")
+        };
+        FieldDescriptor responseDescriptors = fieldWithPath("message").description("시스템 메시지");
+
+        resultActions
+                .andDo(restDocs.document(
+                                requestFields(requestDescriptors), responseFields(responseDescriptors),
+                                resource(
+                                        ResourceSnippetParameters.builder()
+                                                .description("공통 코드 그룹 생성")
+                                                .requestFields(requestDescriptors)
+                                                .responseFields(responseDescriptors).build()
+                                )
+                        )
+                );
+
     }
 
     @Transactional
     @Test
     @Order(9)
     @DisplayName("공통코드 그룹 수정, 성공")
-    void updateCodeGroupSuccess() {
+    void updateCodeGroupSuccess() throws Exception {
+
+        String uri = Uris.CODE_GROUP_ROOT;
+        String name = "가동 상태";
+        CommonCodeGroupPayloads.UpdateRequest request =
+                new CommonCodeGroupPayloads.UpdateRequest(defaultCommonCodeGroup.getUuid(), name, null);
+
+        ResultActions resultActions = mockMvc.perform(
+                        patch(uri)
+                                .content(stringUtils.toJson(request))
+                                .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message", notNullValue()))
+                .andExpect(jsonPath("$.message", is(MessageCode.SUCCESS.name())));
+
+        CommonCodeGroup updatedcommonCodeGroup = gateway.findCommonCodeGroupByUuid(defaultCommonCodeGroup.getUuid());
+        assertEquals(updatedcommonCodeGroup.getUuid(), defaultCommonCodeGroup.getUuid());
+        assertEquals(updatedcommonCodeGroup.getName(), name);
+        assertEquals(updatedcommonCodeGroup.getDescription(), defaultCommonCodeGroup.getDescription());
+
+        FieldDescriptor[] requestDescriptors = {
+                fieldWithPath("uuid").description("공통코드 그룹 식별자"),
+                fieldWithPath("name").description("공통코드 그룹명").optional(),
+                fieldWithPath("description").description("공통코드 그룹 설명").optional()
+        };
+        FieldDescriptor responseDescriptors = fieldWithPath("message").description("시스템 메시지");
+
+        resultActions
+                .andDo(restDocs.document(
+                                requestFields(requestDescriptors), responseFields(responseDescriptors),
+                                resource(
+                                        ResourceSnippetParameters.builder()
+                                                .description("공통 코드 그룹 수정")
+                                                .requestFields(requestDescriptors)
+                                                .responseFields(responseDescriptors).build()
+                                )
+                        )
+                );
+
+
     }
 
     @Transactional
     @Test
     @Order(10)
     @DisplayName("공통코드 그룹 삭제, 성공")
-    void deleteCodeGroupSuccess() {
+    void deleteCodeGroupSuccess() throws Exception {
+
+        String uri = Uris.CODE_GROUP_ROOT + Uris.REST_NAME_UUID;
+
+        String uuid = defaultCommonCodeGroup.getUuid();
+        ResultActions resultActions = mockMvc.perform(
+                        delete(uri, uuid)
+                )
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.message", notNullValue()))
+                .andExpect(jsonPath("$.message", is(MessageCode.SUCCESS.name())));
+
+        assertThrows(CommonApplicationException.class, () -> gateway.findCommonCodeGroupByUuid(uuid));
+
+        ParameterDescriptor parameterDescriptor = RequestDocumentation.parameterWithName("uuid").description("공통코드 식별자");
+        FieldDescriptor responseDescriptors = fieldWithPath("message").description("시스템 메시지");
+
+        resultActions
+                .andDo(restDocs.document(
+                                pathParameters(parameterDescriptor), responseFields(responseDescriptors),
+                                resource(
+                                        ResourceSnippetParameters.builder()
+                                                .description("공통 코드 그룹 삭제")
+                                                .pathParameters(parameterDescriptor)
+                                                .responseFields(responseDescriptors).build()
+                                )
+                        )
+                );
+
     }
 }

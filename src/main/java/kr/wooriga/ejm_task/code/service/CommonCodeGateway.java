@@ -19,12 +19,6 @@ public class CommonCodeGateway {
     private final CommonCodeGroupRepository commonCodeGroupRepository;
 
     @Transactional(readOnly = true, propagation = Propagation.MANDATORY)
-    public CommonCode findCommonCodeById(Long id) {
-        return commonCodeRepository.findByIdAndEnabledTrue(id)
-                .orElseThrow(() -> new CommonApplicationException(MessageCode.NOT_FOUND_COMMON_CODE));
-    }
-
-    @Transactional(readOnly = true, propagation = Propagation.MANDATORY)
     public CommonCode findCommonCodeByUuid(String uuid) {
         return commonCodeRepository.findByUuidAndEnabledTrue(uuid)
                 .orElseThrow(() -> new CommonApplicationException(MessageCode.NOT_FOUND_COMMON_CODE));
@@ -42,4 +36,9 @@ public class CommonCodeGateway {
                 .orElseThrow(() -> new CommonApplicationException(MessageCode.NOT_FOUND_COMMON_CODE_GROUP));
     }
 
+    @Transactional(readOnly = true, propagation = Propagation.MANDATORY)
+    public CommonCodeGroup findCommonCodeGroupByName(String name) {
+        return commonCodeGroupRepository.findByNameAndEnabledTrue(name)
+                .orElseThrow(() -> new CommonApplicationException(MessageCode.NOT_FOUND_COMMON_CODE_GROUP));
+    }
 }
