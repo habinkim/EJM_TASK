@@ -38,13 +38,15 @@ public class DummyService extends AbstractIntegrationTest {
 
     @Transactional(propagation = Propagation.MANDATORY)
     public void initCommonCodes() {
+        defaultCommonCodes.clear();
         IntStream.range(0, 100)
                 .forEach(i -> {
                     Collections.shuffle(defaultCommonCodeGroups);
                     CommonCode commonCode = initCommonCode(i, stringUtils.uuidGenerator(), defaultCommonCodeGroups.get(0));
+                    commonCodeRepository.save(commonCode);
                     defaultCommonCodes.add(commonCode);
                 });
-        commonCodeRepository.saveAll(defaultCommonCodes);
+        commonCodeRepository.flush();
     }
 
     public CommonCode initCommonCode(Integer index, String uuid, CommonCodeGroup commonCodeGroup) {
@@ -53,12 +55,14 @@ public class DummyService extends AbstractIntegrationTest {
 
     @Transactional(propagation = Propagation.MANDATORY)
     public void initCommonCodeGroups() {
+        defaultCommonCodeGroups.clear();
         IntStream.range(0, 25)
                 .forEach(i -> {
                     CommonCodeGroup commonCodeGroup = initCommonCodeGroup(i, stringUtils.uuidGenerator());
+                    commonCodeGroupRepository.save(commonCodeGroup);
                     defaultCommonCodeGroups.add(commonCodeGroup);
                 });
-        commonCodeGroupRepository.saveAll(defaultCommonCodeGroups);
+        commonCodeGroupRepository.flush();
     }
 
     public CommonCodeGroup initCommonCodeGroup(Integer index, String uuid) {

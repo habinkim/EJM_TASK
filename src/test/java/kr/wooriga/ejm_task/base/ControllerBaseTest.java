@@ -35,6 +35,7 @@ public abstract class ControllerBaseTest extends AbstractIntegrationTest {
 
     @BeforeEach
     void setUp(final WebApplicationContext context, final RestDocumentationContextProvider provider) {
+
         this.mockMvc = webAppContextSetup(context)
                 .apply(documentationConfiguration(provider))
                 .alwaysDo(print())

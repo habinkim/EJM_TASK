@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,9 +22,13 @@ public abstract class CommonCodeGroupDecorator implements CommonCodeGroupMapper 
     public CommonCodeGroupPayloads.DetailResponse detailResponse(CommonCodeGroup commonCodeGroup) {
         CommonCodeGroupPayloads.DetailResponse detailResponse = delegate.detailResponse(commonCodeGroup);
 
-        List<CommonCodePayloads.ListResponse> codes = commonCodeGroup.getCodes().stream()
-                .map(c -> new CommonCodePayloads.ListResponse(c.getUuid(), c.getValue(), c.getName(), commonCodeGroup.getName()))
-                .collect(Collectors.toList());
+        List<CommonCodePayloads.ListResponse> codes = new ArrayList<>();
+
+        if (commonCodeGroup.getCodes() != null) {
+            codes = commonCodeGroup.getCodes().stream()
+                    .map(c -> new CommonCodePayloads.ListResponse(c.getUuid(), c.getValue(), c.getName(), commonCodeGroup.getName()))
+                    .collect(Collectors.toList());
+        }
 
         return detailResponse.toBuilder().codes(codes).build();
     }

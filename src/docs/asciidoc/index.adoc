@@ -1,0 +1,16 @@
+= Common Code REST API Documentation
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[Common-Code-API]]
+== Common Code API
+
+=== 공통 코드 리스트 조회 API
+operation::code-list-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
+
+=== 공통 코드 상세 조회 API
+operation::code-detail-success[snippets='curl-request,http-request,http-response,path-parameters,response-fields']
