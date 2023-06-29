@@ -1,0 +1,299 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Common Code REST API Documentation",
+    "description" : "Spring REST Docs with SwaggerUI.",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:9000"
+  } ],
+  "tags" : [ ],
+  "paths" : {
+    "/code/list" : {
+      "post" : {
+        "tags" : [ "code" ],
+        "operationId" : "code-list-success",
+        "requestBody" : {
+          "content" : {
+            "application/json;charset=UTF-8" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/code-list1014312274"
+              },
+              "examples" : {
+                "code-list-success" : {
+                  "value" : "{\n  \"pageNo\" : 0,\n  \"pageSize\" : 10,\n  \"value\" : \"\",\n  \"name\" : \"\",\n  \"groupUuid\" : \"\",\n  \"groupNm\" : \"\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json;charset=UTF-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/code-list1652407193"
+                },
+                "examples" : {
+                  "code-list-success" : {
+                    "value" : "{\n  \"message\" : \"SUCCESS\",\n  \"result\" : {\n    \"content\" : [ {\n      \"uuid\" : \"032d3ed9-d2c4-4ffd-aca7-c693fc5c8565\",\n      \"value\" : \"01afe166-9e40-456a-9c6b-9d5b4b548726\",\n      \"name\" : \"01afe166-9e40-456a-9c6b-9d5b4b548726_96\",\n      \"groupName\" : \"5e1bb661-106f-4bc3-9809-b6b9f3d817c7_16\"\n    }, {\n      \"uuid\" : \"c6715245-0fae-4f41-85ae-cd35a238b53b\",\n      \"value\" : \"04dec9a6-8525-41d8-a949-d29b4e525723\",\n      \"name\" : \"04dec9a6-8525-41d8-a949-d29b4e525723_42\",\n      \"groupName\" : \"1adad63a-01a1-4254-97f8-875faf18d22b_15\"\n    }, {\n      \"uuid\" : \"d344333b-a540-4372-b1c4-a96aff95dc4a\",\n      \"value\" : \"064c51e1-eccb-45a9-976c-eddbe62894b6\",\n      \"name\" : \"064c51e1-eccb-45a9-976c-eddbe62894b6_69\",\n      \"groupName\" : \"008c67c5-f47d-4622-b952-054d719e7c5d_18\"\n    }, {\n      \"uuid\" : \"550c0bf0-e2b7-4b5f-a0f8-f8d8a6487e9f\",\n      \"value\" : \"0813c6e1-da6b-48fb-ad98-fec8f4f8e5f4\",\n      \"name\" : \"0813c6e1-da6b-48fb-ad98-fec8f4f8e5f4_55\",\n      \"groupName\" : \"baec69f3-da97-4416-822b-ea74fc3d5441_17\"\n    }, {\n      \"uuid\" : \"3d23b7e5-83bd-4d41-865b-4bba428c8c83\",\n      \"value\" : \"086b91f3-36f7-4889-98b1-e40dcc5c4955\",\n      \"name\" : \"086b91f3-36f7-4889-98b1-e40dcc5c4955_54\",\n      \"groupName\" : \"baec69f3-da97-4416-822b-ea74fc3d5441_17\"\n    }, {\n      \"uuid\" : \"a76cb6be-8eb8-4b8d-a136-2d67bd91f160\",\n      \"value\" : \"09808277-8ed3-43d5-8254-0e74c1a4b57e\",\n      \"name\" : \"09808277-8ed3-43d5-8254-0e74c1a4b57e_7\",\n      \"groupName\" : \"e1b62f74-5537-460b-bf9d-9879e98199f3_9\"\n    }, {\n      \"uuid\" : \"9e198e63-91b8-481f-93b7-15b80ad6f44c\",\n      \"value\" : \"0a345740-c7fc-4355-a1a8-98aae1b4dda6\",\n      \"name\" : \"0a345740-c7fc-4355-a1a8-98aae1b4dda6_95\",\n      \"groupName\" : \"1adad63a-01a1-4254-97f8-875faf18d22b_15\"\n    }, {\n      \"uuid\" : \"62f1f13a-3e01-4a2c-8024-aae296988026\",\n      \"value\" : \"0c724ff1-e6d7-4235-ab53-f512fa05bf08\",\n      \"name\" : \"0c724ff1-e6d7-4235-ab53-f512fa05bf08_12\",\n      \"groupName\" : \"82ee18cf-6476-483e-9e88-a06228feff01_3\"\n    }, {\n      \"uuid\" : \"414d2a7a-6c5e-4ed4-920b-a6ccffc9dbe8\",\n      \"value\" : \"101e0191-c00b-4f8d-bc47-13896fa4d650\",\n      \"name\" : \"101e0191-c00b-4f8d-bc47-13896fa4d650_17\",\n      \"groupName\" : \"84df13e4-b68d-4095-9c2f-64c90713a3e1_11\"\n    }, {\n      \"uuid\" : \"9fd1cd33-97c1-4f07-9f3a-0b234ee43a7a\",\n      \"value\" : \"151be3d5-6673-4825-8781-f6ae5272f222\",\n      \"name\" : \"151be3d5-6673-4825-8781-f6ae5272f222_87\",\n      \"groupName\" : \"6cb2a5c5-33ca-4177-851d-b673bcd75707_1\"\n    } ],\n    \"pageable\" : {\n      \"sort\" : {\n        \"empty\" : false,\n        \"sorted\" : true,\n        \"unsorted\" : false\n      },\n      \"offset\" : 0,\n      \"pageNumber\" : 0,\n      \"pageSize\" : 10,\n      \"paged\" : true,\n      \"unpaged\" : false\n    },\n    \"last\" : false,\n    \"totalElements\" : 100,\n    \"totalPages\" : 10,\n    \"number\" : 0,\n    \"sort\" : {\n      \"empty\" : false,\n      \"sorted\" : true,\n      \"unsorted\" : false\n    },\n    \"first\" : true,\n    \"size\" : 10,\n    \"numberOfElements\" : 10,\n    \"empty\" : false\n  }\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/{uuid}" : {
+      "get" : {
+        "tags" : [ "code" ],
+        "operationId" : "code-detail-success",
+        "parameters" : [ {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "공통코드 식별자",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json;charset=UTF-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/code-uuid1714568114"
+                },
+                "examples" : {
+                  "code-detail-success" : {
+                    "value" : "{\n  \"message\" : \"SUCCESS\",\n  \"result\" : {\n    \"uuid\" : \"d98eff3f-5f86-402f-9db4-dc106d2e9bf4\",\n    \"value\" : \"3e4c6c33-ca24-4a1a-9330-b0aacbc13d0b\",\n    \"name\" : \"3e4c6c33-ca24-4a1a-9330-b0aacbc13d0b_0\",\n    \"groupName\" : \"d1254e73-a272-4167-af06-34431b98c79a_4\",\n    \"description\" : \"3e4c6c33-ca24-4a1a-9330-b0aacbc13d0b\",\n    \"groupUuid\" : \"191519db-ddc2-409b-b1b1-51ba5a6fe32f\",\n    \"groupDescription\" : \"d1254e73-a272-4167-af06-34431b98c79a\",\n    \"createdAt\" : \"2023-06-29 16:43:39\",\n    \"updatedAt\" : \"2023-06-29 16:43:39\"\n  }\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "code-uuid1714568114" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "object",
+            "properties" : {
+              "createdAt" : {
+                "type" : "string",
+                "description" : "생성일"
+              },
+              "groupName" : {
+                "type" : "string",
+                "description" : "공통코드 그룹 이름"
+              },
+              "groupDescription" : {
+                "type" : "string",
+                "description" : "공통코드 그룹 설명"
+              },
+              "groupUuid" : {
+                "type" : "string",
+                "description" : "공통코드 그룹 식별자"
+              },
+              "name" : {
+                "type" : "string",
+                "description" : "공통코드 이름"
+              },
+              "description" : {
+                "type" : "string",
+                "description" : "공통코드 설명"
+              },
+              "value" : {
+                "type" : "string",
+                "description" : "공통코드 값"
+              },
+              "uuid" : {
+                "type" : "string",
+                "description" : "공통코드 식별자"
+              },
+              "updatedAt" : {
+                "type" : "string",
+                "description" : "수정일"
+              }
+            },
+            "description" : "오브젝트"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "시스템 메시지"
+          }
+        }
+      },
+      "code-list1652407193" : {
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "type" : "object",
+            "properties" : {
+              "number" : {
+                "type" : "number",
+                "description" : "페이지 번호 (0부터 시작)"
+              },
+              "numberOfElements" : {
+                "type" : "number",
+                "description" : "현재 페이지 요소 갯수"
+              },
+              "size" : {
+                "type" : "number",
+                "description" : "페이지 당 크기"
+              },
+              "last" : {
+                "type" : "boolean",
+                "description" : "마지막 페이지 여부"
+              },
+              "totalPages" : {
+                "type" : "number",
+                "description" : "페이지 갯수"
+              },
+              "pageable" : {
+                "type" : "object",
+                "properties" : {
+                  "paged" : {
+                    "type" : "boolean",
+                    "description" : "페이징 여부"
+                  },
+                  "pageNumber" : {
+                    "type" : "number",
+                    "description" : "페이지 번호 (0부터 시작)"
+                  },
+                  "offset" : {
+                    "type" : "number",
+                    "description" : "offset"
+                  },
+                  "pageSize" : {
+                    "type" : "number",
+                    "description" : "요청한 페이지 당 크기"
+                  },
+                  "unpaged" : {
+                    "type" : "boolean",
+                    "description" : "미 페이징 여부"
+                  },
+                  "sort" : {
+                    "type" : "object",
+                    "properties" : {
+                      "unsorted" : {
+                        "type" : "boolean",
+                        "description" : "미정렬 여부"
+                      },
+                      "sorted" : {
+                        "type" : "boolean",
+                        "description" : "정렬 여부"
+                      },
+                      "empty" : {
+                        "type" : "boolean",
+                        "description" : "정렬 정보 미존재 여부"
+                      }
+                    },
+                    "description" : "정렬 정보"
+                  }
+                },
+                "description" : "페이징 오브젝트"
+              },
+              "sort" : {
+                "type" : "object",
+                "properties" : {
+                  "unsorted" : {
+                    "type" : "boolean",
+                    "description" : "미정렬 여부"
+                  },
+                  "sorted" : {
+                    "type" : "boolean",
+                    "description" : "정렬 여부"
+                  },
+                  "empty" : {
+                    "type" : "boolean",
+                    "description" : "정렬 정보 미존재 여부"
+                  }
+                }
+              },
+              "first" : {
+                "type" : "boolean",
+                "description" : "첫 페이지 여부"
+              },
+              "content" : {
+                "type" : "array",
+                "description" : "오브젝트",
+                "items" : {
+                  "type" : "object",
+                  "properties" : {
+                    "groupName" : {
+                      "type" : "string",
+                      "description" : "코드 그룹 이름"
+                    },
+                    "name" : {
+                      "type" : "string",
+                      "description" : "코드명"
+                    },
+                    "value" : {
+                      "type" : "string",
+                      "description" : "코드 값"
+                    },
+                    "uuid" : {
+                      "type" : "string",
+                      "description" : "고유번호"
+                    }
+                  }
+                }
+              },
+              "empty" : {
+                "type" : "boolean",
+                "description" : "현재 페이지 요소 미존재 여부"
+              },
+              "totalElements" : {
+                "type" : "number",
+                "description" : "총 요소 갯수"
+              }
+            }
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "시스템 메시지"
+          }
+        }
+      },
+      "code-list1014312274" : {
+        "type" : "object",
+        "properties" : {
+          "groupNm" : {
+            "type" : "string",
+            "description" : "코드 그룹 이름"
+          },
+          "groupUuid" : {
+            "type" : "string",
+            "description" : "코드 그룹 식별자"
+          },
+          "pageNo" : {
+            "type" : "number",
+            "description" : "페이지 번호"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "코드명"
+          },
+          "pageSize" : {
+            "type" : "number",
+            "description" : "페이지 당 크기"
+          },
+          "value" : {
+            "type" : "string",
+            "description" : "코드 값"
+          }
+        }
+      }
+    }
+  }
+}
