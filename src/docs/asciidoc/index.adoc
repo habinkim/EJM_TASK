@@ -10,7 +10,44 @@
 == Common Code API
 
 === 공통 코드 리스트 조회 API
+
 operation::code-list-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
 
 === 공통 코드 상세 조회 API
+
 operation::code-detail-success[snippets='curl-request,http-request,http-response,path-parameters,response-fields']
+
+=== 공통 코드 생성 API
+
+operation::create-code-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
+
+=== 공통 코드 수정 API
+
+operation::update-code-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
+
+=== 공통 코드 삭제 API
+
+operation::delete-code-success[snippets='curl-request,http-request,http-response,path-parameters,response-fields']
+
+[[Common-Code-Group-API]]
+== Common Code Group API
+
+=== 공통 코드 그룹 리스트 조회 API
+
+operation::code-group-list-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
+
+=== 공통 코드 그룹 상세 조회 API
+
+operation::code-group-detail-success[snippets='curl-request,http-request,http-response,path-parameters,response-fields']
+
+=== 공통 코드 그룹 생성 API
+
+operation::create-code-group-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
+
+=== 공통 코드 그룹 수정 API
+
+operation::update-code-group-success[snippets='curl-request,http-request,http-response,request-fields,response-fields']
+
+=== 공통 코드 그룹 삭제 API
+
+operation::delete-code-group-success[snippets='curl-request,http-request,http-response,path-parameters,response-fields']
